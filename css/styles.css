@@ -1,0 +1,232 @@
+:root {
+  --ff: "Poppins", sans-serif;
+  --base-font: 1.6rem;
+  --clr-bg: #161722;
+  --clr-bg-3: #807e7e;
+  --clr-bg-4: #000000;
+  --clr-bg-5: hsla(236, 17%, 32%, 0);
+  --clr-text: #fafafa;
+  --clr-btn: #f2a365;
+  --clr-btn-hr: #eb8232;
+}
+
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--clr-bg-5);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--clr-bg-4);
+  border-radius: 0.8rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  position: relative;
+  font-size: 62.5%;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font: 400 var(--base-font) var(--ff);
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  width: 92%;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  user-select: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  padding: 5.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo img {
+  width: 25rem;
+}
+
+main {
+  height: 500px;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  align-items: center;
+}
+
+button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 0;
+  background-color: var(--clr-btn);
+  color: var(--clr-text);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+button:hover {
+  background-color: var(--clr-btn-hr);
+  font-weight: 700;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button#next {
+  justify-self: end;
+}
+
+.card-container {
+  position: relative;
+}
+
+.card {
+  width: 90%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--clr-bg);
+  transition: all 0.4s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card * {
+  width: 100%;
+}
+
+.card-image {
+  height: 41rem;
+  overflow: auto;
+  border-radius: 0.6rem;
+  transition: transform 0.3s ease;
+}
+
+.card-image img {
+  border-radius: 0.6rem;
+}
+
+.card-image::-webkit-scrollbar {
+  width: 0;
+}
+
+.card:hover .card-image {
+  transform: scale(1.02);
+}
+
+.card a {
+  display: block;
+  font-weight: 400;
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: var(--base-font);
+  color: var(--clr-btn);
+}
+
+.card.view {
+  opacity: 1;
+  pointer-events: all;
+}
+
+@media (max-width: 1350px) {
+  .card-image {
+    height: 30vw;
+  }
+}
+
+button.btn {
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.about {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  clip-path: circle(0% at 100% 0%);
+  background-color: var(--clr-bg-4);
+  transition: clip-path 0.8s ease;
+}
+
+.about > * {
+  width: 92%;
+  margin: auto;
+}
+
+.about h1 {
+  font-weight: 500;
+  padding: 5rem 0;
+}
+
+.about h2 {
+  font-weight: 400;
+  color: var(--clr-btn);
+  margin-bottom: 4rem;
+  opacity: 0;
+}
+
+.about p {
+  margin-bottom: 4rem;
+  opacity: 0;
+}
+
+.about ul {
+  opacity: 0;
+}
+
+.about h2,
+.about p,
+.about ul {
+  transition: opacity 0.4s ease 0.7s;
+}
+
+.about.view {
+  clip-path: circle(150% at 100% 0%);
+}
+
+.about.view h2,
+.about.view p,
+.about.view ul {
+  opacity: 1;
+}
