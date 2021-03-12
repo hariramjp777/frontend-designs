@@ -68,23 +68,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const next = document.getElementById("next");
   const prev = document.getElementById("prev");
   next.addEventListener("click", function () {
-    const currElement = document.querySelector(".card.view");
-    const nextElement = currElement.nextElementSibling
-      ? currElement.nextElementSibling
+    const currCard = document.querySelector(".card.view");
+    const nextCard = currCard.nextElementSibling
+      ? currCard.nextElementSibling
       : document.querySelector(".card-container").firstElementChild;
-    currElement.classList.remove("view");
-    nextElement.classList.add("view");
+    currCard.classList.remove("view");
+    nextCard.classList.add("view");
   });
 
   prev.addEventListener("click", function () {
-    const currElement = document.querySelector(".card.view");
-    const prevElement = currElement.previousElementSibling
-      ? currElement.previousElementSibling
+    const currCard = document.querySelector(".card.view");
+    const prevCard = currCard.previousElementSibling
+      ? currCard.previousElementSibling
       : document.querySelector(".card-container").lastElementChild;
-    if (prevElement) {
-      currElement.classList.remove("view");
-      prevElement.classList.add("view");
-    }
+    currCard.classList.remove("view");
+    prevCard.classList.add("view");
   });
 
   document.addEventListener("keydown", function (e) {
